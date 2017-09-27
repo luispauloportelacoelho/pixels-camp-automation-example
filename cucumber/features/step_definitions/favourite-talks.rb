@@ -1,8 +1,7 @@
 Given(/^I access the schedule Page$/) do
-  visit '/'
-  find(:xpath, '//a[@href="/schedule"]').click
+  $talk.find_talk
 end
 
 Then(/^I see my favourite talk with successs$/) do
-  sleep 01
+  $talk.confirm_talk
 end
