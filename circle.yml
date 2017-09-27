@@ -18,7 +18,7 @@ dependencies:
  override:
    - rvm use .
    - gem install bundler
-   - cd pixels-camp-automation-example/cucumber; bundle install
+   - cd cucumber; bundle install
 test:
  override:
-   - cd pixels-camp-automation-example/cucumber; cucumber --tags @favourite_talk
+   - cd cucumber; cucumber --tags @favourite_talk
