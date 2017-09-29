@@ -15,11 +15,17 @@ dependencies:
    - npm install -g chromedriver
    - gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
    - curl -sSL https://get.rvm.io | bash -s stable
+   #Install Json server example
+   - npm install -g json-server@0.10.1
  override:
    - rvm use .
-   - gem install bundler
-   - cd cucumber; bundle install
+   - cd fake_api; json-server --watch endpoints.json;
 
 test:
+  pre:
+    - gem install bundler
+    - cd cucumber; bundle install
  override:
    - cd cucumber; cucumber --tags @favourite_talk
+   - cd cucumber; cucumber --tags @pixels_api_get
+   - cd cucumber; cucumber --tags @pixels_api_post
