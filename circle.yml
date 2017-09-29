@@ -19,7 +19,7 @@ dependencies:
    - npm install -g json-server@0.10.1
  override:
    - rvm use .
-   - cd fake_api; json-server --watch endpoints.json;
+   - cd fake_api; json-server --watch endpoints.json &
 
 test:
   pre:
