@@ -20,11 +20,10 @@ dependencies:
  override:
    - rvm use .
    - cd fake_api; json-server --watch endpoints.json &
+   - gem install bundler
+   - cd cucumber; bundle install
 
 test:
-  pre:
-    - gem install bundler
-    - cd cucumber; bundle install
  override:
    - cd cucumber; cucumber --tags @favourite_talk
    - cd cucumber; cucumber --tags @pixels_api_get
