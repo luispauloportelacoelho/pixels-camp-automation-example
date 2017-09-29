@@ -20,7 +20,8 @@ dependencies:
  override:
    - rvm use .
    - cd fake_api; json-server --watch endpoints.json
-                  background: true
+
+ background: true
 
 test:
  override:
