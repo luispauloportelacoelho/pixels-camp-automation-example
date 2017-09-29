@@ -1,0 +1,12 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Name Flube",
+      "address": "5 avenue St",
+      "document_id": "29154633393",
+      "user": "user",
+      "password": "password"
+    }
+  ]
+}
