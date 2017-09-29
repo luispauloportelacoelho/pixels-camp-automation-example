@@ -1,31 +1,32 @@
 machine:
- ruby:
-   version: ruby-2.3.3
- services:
-   - docker
+  ruby:
+    version: ruby-2.3.3
+  services:
+    - docker
 dependencies:
- pre:
-   - sudo apt-get install libxss1 libappindicator1 libindicator7
-   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-   - sudo dpkg -i google-chrome*.deb
-   - sudo apt-get install -f
-   - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-   - sudo apt-get install jq nodejs curl -qy
-   - npm install -g geckodriver
-   - npm install -g chromedriver
-   - gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-   - curl -sSL https://get.rvm.io | bash -s stable
-   #Install Json server example
-   - npm install -g json-server@0.10.1
- override:
-   - rvm use .
-   - cd fake_api; json-server --watch endpoints.json
-                  background: true
+  pre:
+    - sudo apt-get install libxss1 libappindicator1 libindicator7
+    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - sudo dpkg -i google-chrome*.deb
+    - sudo apt-get install -f
+    - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    - sudo apt-get install jq nodejs curl -qy
+    - npm install -g geckodriver
+    - npm install -g chromedriver
+    - gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    - curl -sSL https://get.rvm.io | bash -s stable
+    #Install Json server example
+    - npm install -g json-server@0.10.1
+  override:
+    - rvm use .
+    - cd fake_api; json-server --watch endpoints.json
+        background: true
 
 test:
- override:
-   - gem install bundler
-   - cd cucumber; bundle install
-   - cd cucumber; cucumber --tags @favourite_talk
-   - cd cucumber; cucumber --tags @pixels_api_get
-   - cd cucumber; cucumber --tags @pixels_api_post
+  override:
+    - gem install bundler
+    - cd cucumber; bundle install
+    - cd cucumber; cucumber --tags @favourite_talk
+    - cd cucumber; cucumber --tags @pixels_api_get
+    - cd cucumber; cucumber --tags @pixels_api_post
+
